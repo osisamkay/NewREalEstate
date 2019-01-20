@@ -4,8 +4,8 @@ import Footer from '../Footer';
 import styled from 'styled-components';
 import axios from 'axios';
 import Loader from '../../../assets/loader.gif';
-import SectionBCards from './../Homepage/SectionBCards';
 import Navbar from './../navbar';
+import ListCard from './ListCard';
 
 
 
@@ -64,12 +64,6 @@ const List= styled.div`
     background-color: #031249;
     color: #b7c2f1;
   }
-  @media (min-width: 1024px){
-    .listgroup{
-      display:grid;
-      grid-template-columns:1fr 3fr;
-      grid-gap: 20px;
-    }
     
     .listLeft{
       height:auto;
@@ -97,7 +91,7 @@ const ListRight = styled.div`
   .right{
     @media (min-width: 768px){
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:1fr 1fr 1fr;
       
     }
   }
@@ -171,17 +165,16 @@ class Listing extends Component {
                     <option value="3"> Detached Duplex</option>
                     <option value="3"> Semi-Detached Duplex</option>
                     <option value="3"> Detached Bungalow</option>
-                    
                   </select>
                 </div>
                 <div className="bedrooms">
                   <select name="bedroom" className="app-select" required onChange={this.PropertyChange.bind(this)}>
                     <option data-display="Bedrooms">Bedrooms</option>
-                    <option value="1">1BR</option>
-                    <option value="2">2BR</option>
-                    <option value="3">3BR</option>
-                    <option value="4">4BR</option>
-                    <option value="5">5BR</option>
+                    <option value="1">1 Bedrooms</option>
+                    <option value="2">2 Bedrooms</option>
+                    <option value="3">3 Bedrooms</option>
+                    <option value="4">4 Bedrooms</option>
+                    <option value="5">5 Bedrooms</option>
                   </select>
                 </div>
                 <div className="PriceRange">
@@ -204,7 +197,7 @@ class Listing extends Component {
                 {filtered.map(list => (
                   <div key={list.id}>
                     <Link to={`/Listview/${list.id}`}>
-                      <SectionBCards
+                      <ListCard
                         image={list.fields.icon ? list.fields.icon[0].url : ''}
                         Price={list.fields.Asking}
                         location={list.fields.Name}
@@ -214,7 +207,7 @@ class Listing extends Component {
                         <div className="child1">
                          <h4>{list.fields.Tag}</h4> 
                         </div>
-                      </SectionBCards>
+                      </ListCard>
                     </Link>
                   </div>
                 ))}
