@@ -9,6 +9,7 @@ const H1 = styled.div`
   color:#283949;
   padding:60px 30px;
   font-size:50px;
+  font-family:Segoe UI;
 `;
 
 const SectE = styled.div`

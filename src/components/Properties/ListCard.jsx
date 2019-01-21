@@ -10,6 +10,7 @@ const Cards = styled.div`
   text-align: center;
   background-color:#ffffff;
   box-shadow:0px 3px 6px #000000;
+  margin-top:25px;
   img{
     width:100%;
   }
@@ -30,7 +31,7 @@ const Cards = styled.div`
       background-color:#27446E;
       width:50%;
       position:relative;
-      top:-66px;
+      top:-57px;
       h4{
         padding:10px;
         color:white;
@@ -44,17 +45,20 @@ const Cards = styled.div`
     align-items: center;
     justify-items: center;
     position: relative;
-    top: -45px;
+    top: -25px;
     grid-gap: 10px;
 
     img{
       width:17px;
     }
-    span{
+    h6{
       position: relative;
       top: -3px;
       padding: 4px;
       width:100px;
+      color:#404040;
+      margin:0px;
+      opacity:.62;
     }
   }
 `;
@@ -74,19 +78,19 @@ const ListCard = ({children,location,image,Price,bath,area,bed}) =>(
     <div className='details'>
       <div className="location">
         <img src={Location} alt="sectionE cards"/>
-        <span>{location}</span>
+        <h6>{location}</h6>
       </div>
       <div className="bath">
         <img src={Bath} alt="bath"/>
-        <span>{bath}</span>
+        <h6>{bath}</h6>
       </div>
       <div className="bed">
         <img src={Bed} alt="bed"/>
-        <span>{bed}</span>
+        <h6>{bed}</h6>
       </div>
       <div className="area">
         <img src={Area} alt="area"/>
-        <span>{area}</span>
+        <h6>{area}</h6>
       </div>
 
     </div>

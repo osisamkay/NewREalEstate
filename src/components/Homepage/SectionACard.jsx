@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-
 const CardStyle = styled.div`
+  .stylegroup{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+  }
   @media(min-width:1024px){
-      width:757px;
-      margin: 0px auto;
+      width:900px;
+      margin-left:150px;
+    }
+  @media(min-width:1440px){
+      width:1050px;
+      margin-left:150px;
     }
   background-color:rgba(42, 58, 73,.93);
   padding: 25px;
@@ -45,19 +52,39 @@ const CardStyle = styled.div`
   input[type="button"] {
     border: none;
     border-radius: 5px;
-    padding: 14px;
-    width: 109px;
+    padding: 11px;
+    width: 100%;
     color: white;
     background: #D28662;
     font-weight: 600;
     font-size: 20px;
-}
+  }
+  .app-select{
+    width:100%;
+  }
 
 `;
 
-const SectionACard = ()=>(
-  <div>
-    <CardStyle>
+
+
+
+export default class SectionACard extends Component {
+  constructor(props) {
+    super(props);
+ 
+    this.state = {
+      value: { min: 0, max: 100000000 },
+    };
+  }
+  handleValuesChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+  render() {
+    const{value} = this.state
+    return (
+      <CardStyle>
       <div className="stylegroup">
         <div className="Location filter">
           <select name="Location-type" className="app-select" required>
@@ -94,21 +121,19 @@ const SectionACard = ()=>(
         <div className="range1 filter">
           <h3>₦100,000</h3>
           <input id="typeinp" type="range" min="0" max="100,000,000" defaultValue="3" step="1" />
-          <h3>₦1000,000,000</h3>
+          <h3>100,000,000</h3>
         </div>
         <div className="search filter">
           <input type="button" value="Search" />
         </div>
-        <div className="range2 filter">
-          <h5>₦100,000</h5>
-          <input id="typeinp" type="range" min="0" max="100,000,000" defaultValue="3" step="1" />
-          <h5>₦1000,000,000</h5>
-        </div>
+      </div>
+      <div className="range2 filter">
+        <h5>₦100,000</h5>
+        <input id="typeinp" type="range" min="0" max="100,000,000"  value={this.state.values} 
+        onChange={this.handleValuesChange.bind(this)} step="1" />
+        <h5>₦100,000,000</h5>
       </div>
     </CardStyle>
-  </div>
-
-
-) 
-
-export default SectionACard;
+    )
+  }
+}

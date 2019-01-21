@@ -32,10 +32,13 @@ const Cards = styled.div`
       background-color:#27446E;
       width:50%;
       position:relative;
-      top:-66px;
+      top:-90px;
       h4{
         padding:10px;
         color:white;
+        font-size:25px;
+        text-align: left;
+        margin-left: 23px;
       }
     }
   }
@@ -70,7 +73,7 @@ const SectionBCards = ({children,location,image,Price,bath,area,bed}) =>(
     <div className='images'>
       <img src={image || 'http://placehold.it/200'} alt="sectionE cards"/>
       <div className="price">
-        <h4>{Price}</h4>
+        <h4>₦{Price}</h4>
       </div>
     </div>
     <div className='details'>
