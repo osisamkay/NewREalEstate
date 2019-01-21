@@ -23,6 +23,13 @@ const SectionAStyle = styled.div`
     background-image:url(${MobileBG1});
   }
 
+  .card{
+    position: relative;
+    top: 69%;
+
+  }
+
+
 `;
 
 
