@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/Group 90.png';
 import styled from 'styled-components';
 import User from '../../assets/add-user-interface-outlined-symbol.png';
-// import Navlogo from '../../assets/iconfinder_menu-alt_134216.png';
+import Navlogo from '../../assets/iconfinder_menu-alt_134216.png';
 
 const Nav = styled.div`
   position:fixed;
@@ -18,11 +18,19 @@ const Nav = styled.div`
   img{
     float: right;
     padding: 6px;
+    width:44px;
   }
   .collapse::after{
     content:'';
     clear:both;
     display:table;
+  }
+  .collapse{
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(104,167,195,1) 63%, rgba(68,146,181,1) 75%, rgba(37,128,168,1) 98%, rgba(218,218,219,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(104,167,195,1) 63%, rgba(68,146,181,1) 75%, rgba(37,128,168,1) 98%, rgba(218,218,219,1) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(104,167,195,1) 63%, rgba(68,146,181,1) 75%, rgba(37,128,168,1) 98%, rgba(218,218,219,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#dadadb",GradientType=1);
   }
   .navlinks a{
     text-decoration: none;
@@ -120,14 +128,14 @@ class Navbar extends Component{
                     <Link to="/">
                         <img src={Logo} alt="logo" />
                     </Link>
-                    {/* <img src={Navlogo} alt="NavIcon" onClick={ this.handleClick } /> */}
+                    <img src={Navlogo} alt="NavIcon" onClick={ this.handleClick } />
                 </div>
                 <div className={this.state.condition ? "navlinks" : "rm-navlinks"} >
                     <Link to="/">Home</Link>
-                    <Link to="/Listings">Listings</Link>
+                    <Link to="/About">About Us</Link>
+                    <Link to="/Property">Properties</Link>
                     <Link to="/Sellpage">Sell</Link>
-                    <Link to="/contact">Contact Us</Link>
-                    <Link to="/sign">Sign in</Link>
+                    <Link to="/Contact">Contact Us</Link>
                 </div>
             </div>
             <Navgroup>

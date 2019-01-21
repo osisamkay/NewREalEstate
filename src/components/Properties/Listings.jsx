@@ -9,6 +9,7 @@ import ListCard from './ListCard';
 
 
 
+
 const List= styled.div`
   padding:50px 0;
   .listgroup{
@@ -106,7 +107,7 @@ class Listing extends Component {
     this.state = {
       lists: [],
       ready: 'initial',
-      search: "",
+      value: ''
     };
   }
     componentDidMount() {
@@ -126,23 +127,14 @@ class Listing extends Component {
         })
       })
     }
-    locationChange(e){
-      this.setState({
-        search:e.target.value
-      })
-    }
-    PropertyChange(e){
-      this.setState({
-        search:e.target.value
-      })
-    }
+    handleChange  (event)  {
+      const { value } = event.target;
+      this.setState({ value });
+    };
   
   render() {
-    const { lists, ready,search } = this.state;
-    const filtered = lists.filter(list => {
-      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
-    });
-    
+    const { lists, ready,value  } = this.state;
+
     
     return (
       <div>
@@ -152,7 +144,7 @@ class Listing extends Component {
             <div className="listLeft">
               <h3>Filter</h3>
               <form>
-                <input type="search" name="search" placeholder='Location' onChange={this.locationChange.bind(this)} />
+                <input type="search" name="search" placeholder='Location'  onChange={this.handleChange}/>
                 <div className="Property">
                   <select name="property-type" className="app-select" required >
                     <option data-display="Property Type">Property Type</option>
@@ -168,7 +160,7 @@ class Listing extends Component {
                   </select>
                 </div>
                 <div className="bedrooms">
-                  <select name="bedroom" className="app-select" required onChange={this.PropertyChange.bind(this)}>
+                  <select name="bedroom" className="app-select" required onChange={this.PropertyChange}>
                     <option data-display="Bedrooms">Bedrooms</option>
                     <option value="1">1 Bedrooms</option>
                     <option value="2">2 Bedrooms</option>
@@ -194,7 +186,7 @@ class Listing extends Component {
                 {ready === 'loading' ? (<div className='loader-img'><img src={Loader} className='Image' alt="loader" /></div>) : ''}
               </div>
               <div className="right">
-                {filtered.map(list => (
+                {lists.map(list => (
                   <div key={list.id}>
                     <Link to={`/Listview/${list.id}`}>
                       <ListCard
