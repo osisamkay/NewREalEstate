@@ -1,4 +1,5 @@
 import React, { Component,Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SectionBCards from './SectionBCards';
 
@@ -97,7 +98,11 @@ export default class SectionB extends Component {
                  area={`100, sq ft`} >
                   <div className="child1">
                     <h4>5 Bedroom Duplex</h4>
-                    <div className='button'><button>View</button></div>
+                    <div className='button'>
+                      <Link to={`/Listview/recCWkNvSJfABckX2`}>
+                        <button>View</button>
+                      </Link>
+                    </div>
                   </div>
                 </SectionBCards>
                 <SectionBCards 

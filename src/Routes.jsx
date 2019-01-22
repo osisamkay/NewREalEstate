@@ -5,6 +5,7 @@ import GlobalStyle from './components/GlobalStyle';
 import Contact from './components/Contact us/contact';
 import About from './components/About Us/About';
 import Listing from './components/Properties/Listings';
+import ListView from './components/Properties/ListView';
 
 const Routes = () => (
   <Router>
@@ -15,6 +16,7 @@ const Routes = () => (
         <Route  path="/Contact" component={Contact}></Route>
         <Route  path="/About" component={About}></Route>
         <Route  path="/Property" component={Listing}></Route>
+        <Route path="/ListView/:id" component={ListView}></Route>
       </Switch>
     </Fragment>
   </Router>
