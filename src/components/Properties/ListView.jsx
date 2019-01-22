@@ -5,6 +5,7 @@ import Navbar from '../navbar';
 import Footer from '../Footer';
 import { Link } from 'react-router-dom';
 import Loader from '../../../assets/loader.gif';
+import { Carousel } from "react-responsive-carousel";
 
 
 const Liststyle = styled.div`
@@ -40,6 +41,15 @@ const Liststyle = styled.div`
     position: relative;
     left: 37%;
   }
+  .viewleft{
+    .carousel .slide img {
+      width: 100%;
+      vertical-align: top;
+      border: 0;
+      object-fit: cover;
+      height: 180px;
+  }
+  }
 `;
 
 const Info = styled.div`
@@ -66,15 +76,16 @@ class ListView extends Component {
       ready: 'initial',
     }
   }
+
   componentDidMount() {
-    const { match : { params } } = this.props;
+    const { match: { params } } = this.props;
     const id = params.id;
     this.setState({ ready: 'loading' });
     axios({
       method: 'get',
       url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings/${id}`,
-      headers: {Authorization: `Bearer keyRMRWZ0xrBXA8Yv`},
-    }).then(({ data}) => {
+      headers: { Authorization: `Bearer keyRMRWZ0xrBXA8Yv` },
+    }).then(({ data }) => {
       console.log(data.fields.Tag)
       this.setState({
         list: data,
@@ -82,18 +93,39 @@ class ListView extends Component {
       });
     });
   }
+
   render() {
-    const { list,ready } = this.state;
+    const { list, ready } = this.state;
+
     return (
       <Fragment>
         <Navbar />
         <Liststyle>
-          {ready === 'loading' ? (<img src={Loader} className='Image' alt="loader"/>) : ''}
+          {ready === 'loading' ? (<img src={Loader} className='Image' alt="loader" />) : ''}
           {ready === 'loaded' && (
             <Fragment>
               <Listgroup>
                 <div className="viewleft">
-                  <img src={list.fields.icon[0].url} alt="listing items" />
+                  {/* <img src={list.fields.icon[0].url} alt="listing items" /> */}
+                  
+                  <Carousel autoPlay>
+                    <div>
+                      <img src={list.fields.icon[0].url} />
+                    </div>
+                    <div>
+                      <img src={list.fields.icon[1].url} />
+                    </div>
+                    <div>
+                      <img src={list.fields.icon[2].url} />
+                    </div>
+                    <div>
+                      <img src={list.fields.icon[3].url} />
+                    </div>
+                    <div>
+                      <img src={list.fields.icon[4].url} />
+                    </div>
+                  </Carousel>
+
                 </div>
                 <div className="viewright">
                   <h2>{list.fields.Tag}</h2>
@@ -116,7 +148,7 @@ class ListView extends Component {
           )}
 
         </Liststyle>
-       <Footer />
+        <Footer />
       </Fragment>
     );
   }

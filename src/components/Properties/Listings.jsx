@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Loader from '../../../assets/loader.gif';
 import ListCard from './ListCard';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const List = styled.div`
   .header img{
