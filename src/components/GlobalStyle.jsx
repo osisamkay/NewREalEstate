@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  h1,h2,h3,h4,h5,h6,span{
+  h1,h2,h3,h4,h5,h6,span,label{
     font-family: Segoe UI;
   }
 

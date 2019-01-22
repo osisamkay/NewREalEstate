@@ -10,7 +10,8 @@ const Cards = styled.div`
   text-align: center;
   background-color:#ffffff;
   box-shadow:0px 3px 6px #000000;
-  margin-top:25px;
+  margin:20px 0px;
+  height: 535px;
   img{
     width:100%;
   }
@@ -31,10 +32,13 @@ const Cards = styled.div`
       background-color:#27446E;
       width:50%;
       position:relative;
-      top:-57px;
+      top:-100px;
       h4{
-        padding:10px;
-        color:white;
+        padding: 15px;
+        color: white;
+        font-size: 25px;
+        text-align:left;
+        margin-left:1px;
       }
     }
   }
@@ -43,9 +47,9 @@ const Cards = styled.div`
     display: grid;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
-    justify-items: center;
+    justify-items:center;
     position: relative;
-    top: -25px;
+    top: -102px;
     grid-gap: 10px;
 
     img{
@@ -54,11 +58,12 @@ const Cards = styled.div`
     h6{
       position: relative;
       top: -3px;
-      padding: 4px;
+      padding: 17px;
       width:100px;
       color:#404040;
       margin:0px;
       opacity:.62;
+      display:inline-block;
     }
   }
 `;
