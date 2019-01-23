@@ -73,6 +73,9 @@ const Liststyle = styled.div`
       padding-bottom:20px;
 
     } 
+    ul.thumbs.animated {
+      padding: 0px;
+    }
 
   }
 `;
@@ -102,6 +105,11 @@ const Info = styled.div`
 
    .info {
     margin-left: 24%;
+  }
+ }
+ @media (min-width:1024px){
+   .info {
+    margin-left: 9%;
   }
  }
 `;
@@ -154,8 +162,6 @@ class ListView extends Component {
             <Fragment>
               <Listgroup>
                 <div className="viewleft">
-                  {/* <img src={list.fields.icon[0].url} alt="listing items" /> */}
-                  
                   <Carousel autoPlay>
                     <div>
                       <img src={list.fields.icon[0].url} />
@@ -212,7 +218,7 @@ class ListView extends Component {
                   <h5>{list.fields.Summary}</h5>
                   
                   <div className="btn">
-                    <Link to="/Listings">
+                    <Link to="/Property">
                       <input type="button" value="Return" />
                     </Link>
                   </div>
