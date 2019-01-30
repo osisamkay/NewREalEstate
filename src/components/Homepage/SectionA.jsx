@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import BackgroundSlider from 'react-background-slider';
-import HomeBG1 from '../../../assets/Group 161.png';
-import HomeBG2 from '../../../assets/Group 158.png';
-import HomeBG3 from '../../../assets/Group 159.png';
-import MobileBG1 from '../../../assets/1ross-joyner-568729-unsplash.png';
+import HomeBG1 from '../../../assets/Group 161.jpg';
+import HomeBG2 from '../../../assets/Group 158.jpg';
+import HomeBG3 from '../../../assets/Group 159.jpg';
+import MobileBG1 from '../../../assets/1ross-joyner-568729-unsplash.jpg';
 import SectionACard from './SectionACard';
 
 const SectionAStyle = styled.div`

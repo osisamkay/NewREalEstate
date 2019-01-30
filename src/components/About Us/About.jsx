@@ -168,7 +168,7 @@ const AboutUs = () => (
       <div className="purpose">
         <h2>Our Purpose And Beliefs </h2>
         <div className="pupimages">
-          <img src={require('../../../assets/david-travis-548920-unsplash.png')} alt="team" />
+          <img src={require('../../../assets/david-travis-548920-unsplash.jpg')} alt="team" />
           <span>
             <div className="span">
               <h4>Vision</h4>
@@ -177,7 +177,7 @@ const AboutUs = () => (
           </span>
         </div>
         <div className="pupimages">
-          <img src={require('../../../assets/bobby-rodriguezz-786110-unsplash.png')} alt="team" />
+          <img src={require('../../../assets/bobby-rodriguezz-786110-unsplash.jpg')} alt="team" />
           <span>
             <div className="span">
               <h4>Determination</h4>
@@ -186,7 +186,7 @@ const AboutUs = () => (
           </span>
         </div>
         <div className="pupimages">
-          <img src={require('../../../assets/jakob-owens-729729-unsplash.png')} alt="team" />
+          <img src={require('../../../assets/jakob-owens-729729-unsplash.jpg')} alt="team" />
           <span>
             <div className="span">
               <h4>Reliability</h4>
