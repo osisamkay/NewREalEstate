@@ -80,6 +80,7 @@ const Liststyle = styled.div`
     background-color: #D28662;
     color: white;
     font-family: Tahoma;
+    margin-bottom: 100px;
   }
   .Image {
     width: 25%;
