@@ -7,13 +7,9 @@ const CardStyle = styled.div`
     grid-template-columns:repeat(5,1fr);
   }
   @media(min-width:1024px){
-      width:900px;
-      margin-left:150px;
-    }
-  @media(min-width:1440px){
-      width:1050px;
-      margin-left:150px;
-    }
+      width:82%;
+      margin:0px auto;
+  }
   background-color:rgba(42, 58, 73,.93);
   padding: 25px;
   .filter{

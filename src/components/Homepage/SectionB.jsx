@@ -34,12 +34,12 @@ const SectE1 = styled.div`
   .child1{
     display:inline;
     h4{
-      float:left;
-      margin:0px;
-      padding:15px;
+      float: left;
+      margin: 0px;
+      font-size: 22px;
     }
     .button{
-      padding:8px ;
+      text-align:center;
     }
     button{
       float: right;
@@ -48,7 +48,7 @@ const SectE1 = styled.div`
       width: 65px;
       border-radius: 5px;
       background-color: #314b73;
-      color:white;
+      color: white;
     }
     
     &::after{
@@ -67,6 +67,14 @@ const SectE1 = styled.div`
     }
   }
   @media (min-width:1024px){
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      width:90%;
+      margin:0px auto;
+    }
+  }
+  @media (min-width:1440px){
     .cards{
       display:grid;
       grid-template-columns:repeat(3,1fr);

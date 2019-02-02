@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import BackgroundSlider from 'react-background-slider';
-import HomeBG1 from '../../../assets/Group 161.jpg';
-import HomeBG2 from '../../../assets/Group 158.jpg';
-import HomeBG3 from '../../../assets/Group 159.jpg';
-import MobileBG1 from '../../../assets/1ross-joyner-568729-unsplash.jpg';
+import HomeBG1 from '../../../assets/ross-joyner-568729-unsplash.jpg';
+import HomeBG2 from '../../../assets/s-o-c-i-a-l-c-u-t-1146981-unsplash.jpg';
+import HomeBG3 from '../../../assets/nastuh-abootalebi-284882-unsplash.jpg';
+import MobileBG1 from '../../../assets/ross-joyner-568729-unsplash.jpg';
 import SectionACard from './SectionACard';
 
 const SectionAStyle = styled.div`
@@ -25,7 +25,8 @@ const SectionAStyle = styled.div`
 
   .card{
     position: relative;
-    top: 69%;
+    top: 75%;
+    text-align:center;
 
   }
 

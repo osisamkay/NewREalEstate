@@ -5,7 +5,9 @@ import SectD2 from '../../../assets/ihor-dvoretskyi-719187-unsplash.png';
 
 
 const SectionDStyle = styled.div`
-  padding:100px 0;
+    margin: 0px auto;
+    padding:100px 0;
+    width: 90%;
   @media (min-width:1024px){
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -27,12 +29,14 @@ const SectionDStyle = styled.div`
   
 
 const SectionDStyleGroup1 = styled.div`
-  box-shadow:0 3px 6px #000000;
+  box-shadow:0 3px 6px rgba(0,0,0,0.45);
+  margin-bottom: 50px;
+  padding-bottom:20px;
   .left{
     text-align:center;
 
     img{
-      width:60%;
+      width:100%;
       @media (min-width:1024px){
         width:102%;
       }
@@ -64,15 +68,20 @@ const SectionDStyleGroup1 = styled.div`
     display:grid;
     grid-template-columns:1fr 2fr;
     align-items: center;
+    padding:0px;
+  }
+  @media (min-width:1024px){
+    margin:0px;
   }
 `;
 const SectionDStyleGroup2 = styled.div`
-box-shadow:0 3px 6px #000000;
+  box-shadow:0 3px 6px rgba(0,0,0,0.45);
+  padding-bottom:20px;
 .left{
   text-align:center;
 
   img{
-    width:60%;
+    width:100%;
     @media (min-width:1024px){
       width:100%;
     }
@@ -104,6 +113,7 @@ box-shadow:0 3px 6px #000000;
   display:grid;
   grid-template-columns:1fr 2fr;
   align-items: center;
+  padding:0px;
 }
 @media (min-width:1024px){
   padding:0px;

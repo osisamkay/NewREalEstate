@@ -8,11 +8,14 @@ import Loader from '../../../assets/loader.gif';
 import { Carousel } from "react-responsive-carousel";
 
 
+// box-shadow:0px 3px 6px rgba(0,0,0,.16);
 const Liststyle = styled.div`
   width:90%;
   padding:120px 0;
   margin:0px auto;
-  box-shadow:0px 3px 6px rgba(0,0,0,.16);
+  @media(min-width:1440px){
+    width:80%;
+  }
   img{
     width:100%;
   }
@@ -26,6 +29,7 @@ const Liststyle = styled.div`
       text-align: center;
       padding: 41px 0;
       color: white;
+      margin:0px;
     }
     .agent{
       text-align:center;
@@ -65,6 +69,9 @@ const Liststyle = styled.div`
         width: 100%;
         border-radius: 5px;
       }
+      h3{
+        margin:0px;
+      }
     }
   }
   .button{
@@ -90,6 +97,17 @@ const Liststyle = styled.div`
   }
   .viewleft{
     box-shadow:0px 3px 6px #DADADB;
+    @media (min-width:768px){
+      padding:60px 30px;
+      .carousel .slider-wrapper {
+        width: 85%;
+      }
+    }
+    @media (min-width:1440px){
+      li.slide {
+        height: 550px;
+      }
+    }
     .carousel .slide img {
       width: 100%;
       vertical-align: top;
@@ -98,6 +116,9 @@ const Liststyle = styled.div`
       height: 180px;
       @media (min-width:768px){
         height: 300px;
+      }
+      @media (min-width:1440px){
+        height: 550px;
       }
     }
     .thumbs-wrapper.axis-vertical {
@@ -130,6 +151,8 @@ const Liststyle = styled.div`
     }
 
   }
+  
+  
 `;
 
 const Info = styled.div`
@@ -167,23 +190,26 @@ const Info = styled.div`
  @media (min-width:768px){
    display:grid;
    grid-template-columns:1fr 1fr;
-
-   .info {
-    margin-left: 24%;
+   .Area,.bath,.status{
+     margin-left:auto;
+   }
+   .Area.info {
+    padding-right: 26px;
+    }
+    .status.info {
+      padding-right: 16px;
+    }
   }
- }
- @media (min-width:1024px){
-   .info {
-    margin-left: 9%;
-  }
+ @media (min-width:1440px){
+   width:85%;
  }
 `;
 
 const Listgroup = styled.div`
-@media (min-width: 1024px){
+  @media (min-width: 1024px){
     display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-gap:10px;
+    grid-template-columns:2fr 1fr;
+    grid-gap:40px;
   }
 `;
 
@@ -252,9 +278,9 @@ class ListView extends Component {
                       <img src={require("../../../assets/Path 30.png")} alt="location" />
                       <h6>{list.fields.Name}</h6>
                     </div>
-                    <div className="size info">
+                    <div className="Area info">
                       <img src={require("../../../assets/width (1).png")} alt="area" />
-                      <h6>{list.fields.Area}</h6>
+                      <h6>{list.fields.Area}    </h6>
                     </div>
                     <div className="bed info">
                       <img src={require('../../../assets/bed.png')} alt="bed" />
