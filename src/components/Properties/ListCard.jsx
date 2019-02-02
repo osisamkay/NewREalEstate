@@ -47,7 +47,8 @@ const Cards = styled.div`
     display: grid;
     grid-template-columns: repeat(2,1fr);
     align-items: center;
-    justify-items:center;
+    justify-items:left;
+    padding:0px 15px;
     position: relative;
     top: -102px;
     grid-gap: 10px;
@@ -58,12 +59,14 @@ const Cards = styled.div`
     h6{
       position: relative;
       top: -3px;
-      padding: 17px;
-      width:100px;
       color:#404040;
       margin:0px;
       opacity:.62;
-      display:inline-block;
+      display:inline;
+      font-size:13px;
+    }
+    .bath,.bed{
+      margin-left:auto;
     }
   }
 `;
@@ -89,13 +92,13 @@ const ListCard = ({children,location,image,Price,bath,area,bed}) =>(
         <img src={Bath} alt="bath"/>
         <h6>{bath}</h6>
       </div>
-      <div className="bed">
-        <img src={Bed} alt="bed"/>
-        <h6>{bed}</h6>
-      </div>
       <div className="area">
         <img src={Area} alt="area"/>
         <h6>{area}</h6>
+      </div>
+      <div className="bed">
+        <img src={Bed} alt="bed"/>
+        <h6>{bed}</h6>
       </div>
 
     </div>
