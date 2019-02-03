@@ -193,12 +193,6 @@ const Info = styled.div`
    .Area,.bath,.status{
      margin-left:auto;
    }
-   .Area.info {
-    padding-right: 26px;
-    }
-    .status.info {
-      padding-right: 16px;
-    }
   }
  @media (min-width:1440px){
    width:85%;
