@@ -28,7 +28,7 @@ const List = styled.div`
     width:90%;
     margin:0px auto;
     color:white;
-    padding:20px;
+    padding:60px 20px;
     box-shadow:0 3px 6px black;
     label,input,select{
       display: block;
@@ -39,6 +39,10 @@ const List = styled.div`
       border-radius: 5px;
       outline: none;
       color: #8a758a;
+      height:50px;
+    }
+    label{
+      padding:20px 0px;
     }
 
     .input{
@@ -49,11 +53,19 @@ const List = styled.div`
       h5{
         display:inline;
         margin:0px;
+        @media(min-width:1440px){
+            font-size: 11px;
+        }
       }
       @media(min-width:768px){
         input#typeinp {
           width: 77%;
           display: inline;
+        }
+      }
+      @media(min-width:1440px){
+        input#typeinp {
+          width: 59%;
         }
       }
     }
