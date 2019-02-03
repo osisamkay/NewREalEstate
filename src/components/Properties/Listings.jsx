@@ -72,7 +72,7 @@ const ListRight = styled.div`
   @media(min-width:0px){
     display:none;
   }
-  @media(min-width:1024px){
+  @media(min-width:1440px){
     display:block;
   }
 `;
@@ -91,7 +91,10 @@ const ListLeft = styled.div`
       h4{
         float:left;
         margin:0px;
-        font-size:18px;
+        font-size:17px;
+        @media (min-width:375px){
+          font-size:22px;
+        }
       }
       
       button{
@@ -102,6 +105,7 @@ const ListLeft = styled.div`
         border-radius: 5px;
         background-color: #314b73;
         color:white;
+        cursor:pointer
       }
       
       &::after{

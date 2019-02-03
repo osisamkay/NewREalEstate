@@ -64,9 +64,16 @@ const Cards = styled.div`
       opacity:.62;
       display:inline;
       font-size:13px;
+      margin-left:5px;
+      @media (min-width:1024px){
+        font-size:17px;
+      }
     }
     .bath,.bed{
       margin-left:auto;
+    }
+    .dets{
+      padding:17px 0px;
     }
   }
 `;
@@ -84,19 +91,19 @@ const ListCard = ({children,location,image,Price,bath,area,bed}) =>(
       </div>
     </div>
     <div className='details'>
-      <div className="location">
+      <div className="location dets">
         <img src={Location} alt="sectionE cards"/>
         <h6>{location}</h6>
       </div>
-      <div className="bath">
+      <div className="bath dets">
         <img src={Bath} alt="bath"/>
         <h6>{bath}</h6>
       </div>
-      <div className="area">
+      <div className="area dets">
         <img src={Area} alt="area"/>
         <h6>{area}</h6>
       </div>
-      <div className="bed">
+      <div className="bed dets">
         <img src={Bed} alt="bed"/>
         <h6>{bed}</h6>
       </div>
