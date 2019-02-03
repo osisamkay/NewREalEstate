@@ -44,7 +44,8 @@ const FooterGroup = styled.footer`
         width: 28%;
         text-align: center;
         margin: 20px auto;
-        color: #27446e;
+        background-color: #D28662;
+        color: white;
         @media (min-width:768px){
           display:inline-block;
           width: 15%;
@@ -67,11 +68,11 @@ const FooterGroup = styled.footer`
       padding: 10px 0px;
 
       .facebook{
-        width:6px;
+        width:9px;
       }
 
       li img{
-        width:10px;
+        width:17px;
       }
     } 
   }
@@ -153,6 +154,7 @@ const FooterGroup = styled.footer`
       }
       h5{
         margin:0px;
+        font-size: 20px;
       }
       ul{
         padding:0px;
