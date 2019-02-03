@@ -18,6 +18,10 @@ const List = styled.div`
     color:var(--color-brand-1);
     margin:0px;
     padding:60px 0;
+    font-size:47px;
+    @media (min-width:768px){
+      font-size:68px;
+    }
   }
   form{
     background:#27446E;
@@ -118,7 +122,7 @@ const ListLeft = styled.div`
     @media(min-width:768px){
       display:grid;
       grid-template-columns:1fr 1fr;
-      grid-gap:10px;
+      grid-gap:25px;
     }
   }
 `;
