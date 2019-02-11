@@ -7,7 +7,7 @@ const CardStyle = styled.div`
     grid-template-columns:repeat(5,1fr);
   }
   @media(min-width:1024px){
-      width:82%;
+      width:81%;
       margin:0px auto;
   }
   background-color:rgba(42, 58, 73,.93);
