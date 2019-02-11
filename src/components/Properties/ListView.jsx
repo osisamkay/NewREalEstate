@@ -6,9 +6,10 @@ import Footer from '../Footer';
 import { Link } from 'react-router-dom';
 import Loader from '../../../assets/loader.gif';
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
-// box-shadow:0px 3px 6px rgba(0,0,0,.16);
+
 const Liststyle = styled.div`
   width:90%;
   padding:120px 0;

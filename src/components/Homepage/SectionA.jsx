@@ -6,6 +6,8 @@ import HomeBG2 from '../../../assets/s-o-c-i-a-l-c-u-t-1146981-unsplash.jpg';
 import HomeBG3 from '../../../assets/nastuh-abootalebi-284882-unsplash.jpg';
 import MobileBG1 from '../../../assets/ross-joyner-568729-unsplash.jpg';
 import SectionACard from './SectionACard';
+import SimpleSlider from './SectionACardCarousel';
+
 
 const SectionAStyle = styled.div`
   .App{
@@ -30,6 +32,13 @@ const SectionAStyle = styled.div`
 
   }
 
+  .cardslider{
+    width: 600px;
+    position: absolute;
+    top: 153px;
+    left: 150px;
+  }
+
 
 `;
 
@@ -39,6 +48,7 @@ const SectionA =()=>(
     <div className="mobile">
     </div>
     <div className='App'>
+    <div className="cardslider"><SimpleSlider /></div>
     <div className="card">
       <SectionACard />
     </div>

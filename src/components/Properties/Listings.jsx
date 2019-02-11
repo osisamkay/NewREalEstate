@@ -7,6 +7,7 @@ import axios from 'axios';
 import Loader from '../../../assets/loader.gif';
 import ListCard from './ListCard';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Pagination from "react-js-pagination";
 
 const List = styled.div`
   .header img{
@@ -139,7 +140,7 @@ const ListLeft = styled.div`
   }
 `;
 
-const GridStyle= styled.div`
+const GridStyle = styled.div`
 @media (min-width:1440px){
   display:grid;
   grid-template-columns:3fr 1fr;
@@ -155,6 +156,7 @@ class Listing extends Component {
       lists: [],
       ready: 'initial',
       search: "",
+      activePage: 1
     };
   }
   componentDidMount() {
@@ -183,6 +185,11 @@ class Listing extends Component {
     this.setState({
       search: e.target.value
     })
+  }
+
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
   }
 
   render() {
@@ -272,6 +279,13 @@ class Listing extends Component {
                       </Link>
                     </div>
                   ))}
+                  <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={24}
+                    pageRangeDisplayed={24}
+                    onChange={this.handlePageChange.bind(this)}
+                  />
                 </div>
               </ListLeft>
               <ListRight>
