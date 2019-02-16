@@ -11,7 +11,7 @@ import Pagination from "react-js-pagination";
 
 const List = styled.div`
   .header img{
-    height:445px;
+    height:650px;
     object-fit:cover;
   }
   h2{
@@ -198,13 +198,17 @@ class Listing extends Component {
       return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
 
+  //  var filtered = lists.filter(list => {
+  //     return list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+  //   });
+
 
     return (
       <div>
         <Navbar />
         <List>
           <div className="header">
-            <img src={require('../../../assets/property2.jpeg')} alt="" />
+            <img src={require('../../../assets/architectural-design-architecture-beach-453201_2_1.jpg')} alt="pic" />
             <h2>Our Properties</h2>
           </div>
           <div className="mobile">
@@ -232,7 +236,7 @@ class Listing extends Component {
                 </div>
                 <div className="bedrooms input">
                   <label htmlFor="bedroom">Bedrooms</label>
-                  <select name="bedroom" className="app-select" required onChange={this.PropertyChange.bind(this)}>
+                  <select name="bedroom" className="app-select" required onChange={this.locationChange.bind(this)}>
                     <option data-display="Bedrooms">Bedrooms</option>
                     <option value="1">1 Bedroom</option>
                     <option value="2">2 Bedroom</option>

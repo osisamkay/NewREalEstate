@@ -98,6 +98,7 @@ const Liststyle = styled.div`
   }
   .viewleft{
     box-shadow:0px 3px 6px #DADADB;
+    padding-bottom:10px;
     @media (min-width:768px){
       padding:60px 30px;
       .carousel .slider-wrapper {
@@ -152,7 +153,24 @@ const Liststyle = styled.div`
     }
 
   }
-  
+   
+  .return {
+    height: 45px;
+    width: 30%;
+    border: 0;
+    border-radius: 5px;
+    font-size: larger;
+    background-color: #D28662;
+    color: white;
+    font-family: Tahoma;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+    .Link{
+      color:white;
+    }
+  }
   
 `;
 
@@ -298,6 +316,9 @@ class ListView extends Component {
                   <h4>Get it for</h4>
                   <h2>{list.fields.Asking}</h2>
                   <h3 className='agent'>Contact the agent if interested.</h3>
+                  <button className="return">
+                    <Link to="/Property" className='Link'>Return</Link>
+                  </button>
                 </div>
                 <div className="viewright">
                   <form>
