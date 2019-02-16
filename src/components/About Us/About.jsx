@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from './../navbar';
 import Footer from './../Footer';
+import Vision from '../../../assets/pexels-photo-712786.jpg';
+import Determination from '../../../assets/pexels-photo-263731.jpg';
+import Reliability from '../../../assets/pexels-photo-1261731.jpg';
 
 const AboutStyle = styled.div`
 
@@ -10,7 +13,13 @@ const AboutGroup = styled.div`
   .header{
     background-color:#ffffff;
     text-align:center;
-    padding:120px 10px;
+    padding:120px 20px;
+    h1{
+      font-size:25px;
+      @media(min-width:768px){
+        font-size:50px;
+      }
+    }
   }
   .detail{
     background-color:rgba(112, 112, 112,.5);
@@ -20,10 +29,18 @@ const AboutGroup = styled.div`
       }
     }
   }
+  .detailGroup {
+    width: 90%;
+    margin: 0px auto;
+    @media(min-width:1024px){
+      width:75%;
+      padding:30px 0px;
+    }
+  }
   .details {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    justify-items: center;
+    justify-items: left;
 
     h5{
       text-align:center;
@@ -33,6 +50,14 @@ const AboutGroup = styled.div`
       font-family: Tahoma;
       padding: 21px;
       margin: 0px;
+    }
+    @media(min-width:1024px){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:center;
+      h5,p{
+        font-size:25px;
+      }
     }
   }
   h2{
@@ -69,35 +94,63 @@ const AboutGroup = styled.div`
   .purpose{
     background-color:#ffffff;
     padding:20px;
-    
+    .first {
+      background-image: url(${Vision});
+    }
+    .second {
+      background-image: url(${Determination});
+      
+    }
+    .third {
+      background-image: url(${Reliability});
+    }
     .pupimages{
-      padding-bottom:20px;
-      @media(min-width:1024px){
-        padding: 0px 129px;
-      }
-      padding-bottom:20px;
-      @media(min-width:1440px){
-        padding: 0px 334px;
-      }
+      height:85px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-bottom:30px;
+      display:grid;
       .span{
-        background-color:#404040;
-        padding:17px;
-        margin:0px auto;
+        background-color:rgba(64,64,64,.6);
+        width:50%;
+        margin:auto 0px;
         h4,p{
           color:#ffffff;
+          font-size:12px;
           margin:0px;
           text-align:center;
         }
-        @media (min-width:768px){
-          width: 279px;
-          opacity:0.8;
-          position:relative;
-          top: -97px;
-          right: 30.6%;
-          
+      }
+      .spanLeft{
+        margin-left:auto;
+      }
+      @media (min-width:768px){
+        height:220px;
+        .span{
+          width: 36%;
+          padding: 20PX;
+          h4{
+            font-size:32px;
+          }
+          p{
+            font-size:16px;
+          }
         }
       }
-      
+    }
+    
+    @media (min-width:1024px){
+      width:1000px;
+      margin:0px auto;
+      .pupimages{
+        height:325px;
+        .span{
+          width:25%;
+        }
+      }
+    }
+    @media (min-width:1440px){
+      width:1200px;
     }
     
   }
@@ -111,32 +164,34 @@ const AboutUs = () => (
         <h1>"Over 2.5 million properties sold,more are being sold everyday."</h1>
       </div>
       <div className="detail">
-        <div className="details">
-          <h5>Founded</h5>
-          <p>1996</p>
-        </div>
-        <div className="details">
-          <h5>Ownership</h5>
-          <p>Premium Properties</p>
-        </div>
-        <div className="details">
-          <h5>Global Headquaters</h5>
-          <p>Lagos, Nigeria</p>
-        </div>
+        <div className="detailGroup">
+          <div className="details">
+            <h5>Founded</h5>
+            <p>1996</p>
+          </div>
+          <div className="details">
+            <h5>Ownership</h5>
+            <p>Premium Properties</p>
+          </div>
+          <div className="details">
+            <h5>Global Headquaters</h5>
+            <p>Lagos, Nigeria</p>
+          </div>
 
-        <div className="details">
-          <h5>Address</h5>
-          <p>15th Floor, Elephant House, Marina, Lagos, Nigeria.</p>
-        </div>
-
-        <div className="details what">
-          <h5>What We Do</h5>
-          <p>
-            Premium properties is a leading global business
-             enterprise in the Real Estate Market.We manage
-              homes,buy homes, and sell homes across
-              Nigeria and Africa.
+          <div className="details what">
+            <h5>What We Do</h5>
+            <p>
+              Premium properties is a leading global business
+               enterprise in the Real Estate Market.We manage
+                homes,buy homes, and sell homes across
+                Nigeria and Africa.
           </p>
+          </div>
+
+          <div className="details">
+            <h5>Address</h5>
+            <p>15th Floor, Elephant House, Marina, Lagos, Nigeria.</p>
+          </div>
         </div>
       </div>
       <div className="Team">
@@ -167,32 +222,23 @@ const AboutUs = () => (
 
       <div className="purpose">
         <h2>Our Purpose And Beliefs </h2>
-        <div className="pupimages">
-          <img src={require('../../../assets/david-travis-548920-unsplash.jpg')} alt="team" />
-          <span>
-            <div className="span">
-              <h4>Vision</h4>
-              <p>To be the best home providers globally</p>
-            </div>
-          </span>
+        <div className="pupimages first">
+          <div className="span">
+            <h4>Vision</h4>
+            <p>To be the best home providers globally</p>
+          </div>
         </div>
-        <div className="pupimages">
-          <img src={require('../../../assets/bobby-rodriguezz-786110-unsplash.jpg')} alt="team" />
-          <span>
-            <div className="span">
-              <h4>Determination</h4>
-              <p>Going beyond boundaries to meet our clients expectations and needs</p>
-            </div>
-          </span>
+        <div className="pupimages second">
+          <div className="span spanLeft">
+            <h4>Determination</h4>
+            <p>Going beyond boundaries to meet our clients expectations and needs</p>
+          </div>
         </div>
-        <div className="pupimages">
-          <img src={require('../../../assets/jakob-owens-729729-unsplash.jpg')} alt="team" />
-          <span>
-            <div className="span">
-              <h4>Reliability</h4>
-              <p>Providing honest and trusted services to our clients</p>
-            </div>
-          </span>
+        <div className="pupimages third">
+          <div className="span">
+            <h4>Reliability</h4>
+            <p>Providing honest and trusted services to our clients</p>
+          </div>
         </div>
       </div>
     </AboutGroup>

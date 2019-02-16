@@ -208,7 +208,7 @@ class Listing extends Component {
         <Navbar />
         <List>
           <div className="header">
-            <img src={require('../../../assets/architectural-design-architecture-beach-453201_2_1.jpg')} alt="pic" />
+            {/* <img src={require('../../../assets/architectural-design-architecture-beach-453201_2_1.jpg')} alt="pic" /> */}
             <h2>Our Properties</h2>
           </div>
           <div className="mobile">

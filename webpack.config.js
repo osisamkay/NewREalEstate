@@ -50,7 +50,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-    //   favicon: 'assets/favicon.ico',
+      favicon: './assets/favicon.ico',
     }),
     // new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY', 'HOST']),
   ],
