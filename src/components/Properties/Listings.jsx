@@ -11,7 +11,6 @@ import Pagination from "react-js-pagination";
 
 const List = styled.div`
   .header img{
-    height:650px;
     object-fit:cover;
   }
   h2{
@@ -94,6 +93,9 @@ const ListRight = styled.div`
   }
 `;
 const ListLeft = styled.div`
+.loader-text{
+  text-align: center;
+}
 .loader-img {
   text-align: center;
   img{
@@ -208,7 +210,7 @@ class Listing extends Component {
         <Navbar />
         <List>
           <div className="header">
-            {/* <img src={require('../../../assets/architectural-design-architecture-beach-453201_2_1.jpg')} alt="pic" /> */}
+            <img src={require('../../../assets/pexels-photo-356830.jpeg')} alt="pic" />
             <h2>Our Properties</h2>
           </div>
           <div className="mobile">
@@ -261,7 +263,7 @@ class Listing extends Component {
             <GridStyle>
               <ListLeft>
                 <div className="loader">
-                  {lists.length ? '' : (<h3>There are no list items</h3>)}
+                  {lists.length ? '' : (<h3 className='loader-text'>There are no list items</h3>)}
                   {ready === 'loading' ? (<div className='loader-img'><img src={Loader} className='Image' alt="loader" /></div>) : ''}
                 </div>
                 <div className="left">

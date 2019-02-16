@@ -159,6 +159,9 @@ const AboutGroup = styled.div`
 const AboutUs = () => (
   <AboutStyle>
     <Navbar />
+    <div className="imageHead">
+      <img src={require('../../../assets/pexels-photo-417382.jpeg')} alt="pic" />
+    </div>
     <AboutGroup>
       <div className="header">
         <h1>"Over 2.5 million properties sold,more are being sold everyday."</h1>
