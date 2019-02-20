@@ -157,8 +157,7 @@ class Listing extends Component {
     this.state = {
       lists: [],
       ready: 'initial',
-      search: "",
-      activePage: 1
+      search: " ",
     };
   }
   componentDidMount() {
@@ -170,40 +169,31 @@ class Listing extends Component {
       url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
       headers: { Authorization: `Bearer keyRMRWZ0xrBXA8Yv` },
 
-    }).then(({ data: { records } }) => {
-      console.log(records);
+    }).then(({ data: { records } }) => {;
       this.setState({
         ready: 'loaded',
         lists: records,
       })
     })
-  }
+  };
   locationChange(e) {
     this.setState({
       search: e.target.value
     })
-  }
+  };
   PropertyChange(e) {
     this.setState({
       search: e.target.value
     })
-  }
-
-  handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    this.setState({activePage: pageNumber});
-  }
-
+  };
   render() {
     const { lists, ready, search } = this.state;
+
     const filtered = lists.filter(list => {
-      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 || 
+      list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+      list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1
     });
-
-  //  var filtered = lists.filter(list => {
-  //     return list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1;
-  //   });
-
 
     return (
       <div>
@@ -222,7 +212,7 @@ class Listing extends Component {
                 </div>
                 <div className="Category input">
                   <label htmlFor="category">Category:</label>
-                  <select name="category" className="app-select" required >
+                  <select name="category" className="app-select" required onChange={this.locationChange.bind(this)} >
                     <option data-display="Property Type">Property Type</option>
                     <option value="1">Modern Townhouse</option>
                     <option value="2">terraced duplex</option>
@@ -285,13 +275,6 @@ class Listing extends Component {
                       </Link>
                     </div>
                   ))}
-                  <Pagination
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={6}
-                    totalItemsCount={24}
-                    pageRangeDisplayed={24}
-                    onChange={this.handlePageChange.bind(this)}
-                  />
                 </div>
               </ListLeft>
               <ListRight>
@@ -303,7 +286,7 @@ class Listing extends Component {
                     </div>
                     <div className="Category input">
                       <label htmlFor="category">Category:</label>
-                      <select name="category" className="app-select" required >
+                      <select name="category" className="app-select" required onChange={this.locationChange.bind(this)} >
                         <option data-display="Property Type">Property Type</option>
                         <option value="1">Modern Townhouse</option>
                         <option value="2">terraced duplex</option>
@@ -319,7 +302,7 @@ class Listing extends Component {
                     </div>
                     <div className="bedrooms input">
                       <label htmlFor="bedroom">Bedrooms</label>
-                      <select name="bedroom" className="app-select" required onChange={this.PropertyChange.bind(this)}>
+                      <select name="bedroom" className="app-select" required onChange={this.locationChange.bind(this)}>
                         <option data-display="Bedrooms">Bedrooms</option>
                         <option value="1">1 Bedroom</option>
                         <option value="2">2 Bedroom</option>

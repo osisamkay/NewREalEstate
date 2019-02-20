@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../../../assets/loader.gif';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Modal from 'react-responsive-modal';
 
 
 
@@ -89,6 +90,7 @@ const Liststyle = styled.div`
     color: white;
     font-family: Tahoma;
     margin-bottom: 100px;
+    cursor: pointer;
   }
   .Image {
     width: 25%;
@@ -224,6 +226,7 @@ const Listgroup = styled.div`
     grid-template-columns:2fr 1fr;
     grid-gap:40px;
   }
+
 `;
 
 
@@ -234,6 +237,9 @@ class ListView extends Component {
     this.state = {
       list: {},
       ready: 'initial',
+      open: false,
+      Name: " ",
+      Email:" "
     }
   }
 
@@ -254,9 +260,21 @@ class ListView extends Component {
     });
 
   }
+  GetName = (e) => {
+    this.setState({ Name: e.target.value.toUpperCase()});
+  };
+  GetEmail = (e) => {
+    this.setState({ Email: e.target.value});
+  };
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   render() {
-    const { list, ready } = this.state;
+    const { list, ready, open, Name, Email } = this.state;
 
     return (
       <Fragment>
@@ -332,25 +350,28 @@ class ListView extends Component {
                     </div>
                     <div className="form">
                       <label htmlFor="name">Name</label>
-                      <input type="text" name='Name' />
+                      <input type="text" name='Name' onChange={this.GetName}/>
                     </div>
                     <div className="form">
                       <label htmlFor="email">Email</label>
-                      <input type="email" name='email' />
+                      <input type="email" name='email' onChange={this.GetEmail} />
                     </div>
                     <div className="form">
                       <label htmlFor="message">Message</label>
                       <textarea name="message" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div className="button">
-                      <input type="button" value="Send Message" />
+                      <input type="button" value="Send Message" onClick={this.onOpenModal} />
                     </div>
                   </form>
                 </div>
+                <Modal open={open} onClose={this.onCloseModal} center>
+                  <h2>Hello <i>{Name}</i>, your message has been recieved and a mail has been sent to <i>{Email}</i>.</h2>
+                  <h2>Our Agent {list.fields.Agents} will be in contact with you soon for follow up.</h2>
+                </Modal>
               </Listgroup>
             </Fragment>
           )}
-
         </Liststyle>
         <Footer />
       </Fragment>

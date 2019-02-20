@@ -9,7 +9,7 @@ import Area from '../../../assets/width (1).png';
 const Cards = styled.div`
   text-align: center;
   background-color:#ffffff;
-  box-shadow:0px 3px 6px #000000;
+  box-shadow:0px 1px 2px #000000;
   margin:20px 0px;
   height: 535px;
   img{
@@ -32,7 +32,7 @@ const Cards = styled.div`
       background-color:#27446E;
       width:50%;
       position:relative;
-      top:-100px;
+      top:-99px;
       h4{
         padding: 15px;
         color: white;
