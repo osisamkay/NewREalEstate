@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar';
 import Footer from '../Footer';
@@ -7,7 +7,6 @@ import axios from 'axios';
 import Loader from '../../../assets/loader.gif';
 import ListCard from './ListCard';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Pagination from "react-js-pagination";
 
 const List = styled.div`
   .header img{
@@ -169,7 +168,8 @@ class Listing extends Component {
       url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
       headers: { Authorization: `Bearer keyRMRWZ0xrBXA8Yv` },
 
-    }).then(({ data: { records } }) => {;
+    }).then(({ data: { records } }) => {
+      ;
       this.setState({
         ready: 'loaded',
         lists: records,
@@ -190,9 +190,9 @@ class Listing extends Component {
     const { lists, ready, search } = this.state;
 
     const filtered = lists.filter(list => {
-      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 || 
-      list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-      list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1
     });
 
     return (
@@ -260,18 +260,20 @@ class Listing extends Component {
                   {filtered.map(list => (
                     <div key={list.id}>
                       <Link to={`/Listview/${list.id}`}>
-                        <ListCard
-                          image={list.fields.icon ? list.fields.icon[0].url : ''}
-                          Price={list.fields.Asking}
-                          location={list.fields.Name}
-                          bath={list.fields.Bathrooms}
-                          bed={list.fields.Bedrooms}
-                          area={list.fields.Area} >
-                          <div className="child1">
-                            <h4>{list.fields.Tag}</h4>
-                            <div className='button'><button>View</button></div>
-                          </div>
-                        </ListCard>
+                        <Suspense fallback={<div>Loading...</div>}>
+                          <ListCard
+                            image={list.fields.icon ? list.fields.icon[0].url : ''}
+                            Price={list.fields.Asking}
+                            location={list.fields.Name}
+                            bath={list.fields.Bathrooms}
+                            bed={list.fields.Bedrooms}
+                            area={list.fields.Area} >
+                            <div className="child1">
+                              <h4>{list.fields.Tag}</h4>
+                              <div className='button'><button>View</button></div>
+                            </div>
+                          </ListCard>
+                        </Suspense>
                       </Link>
                     </div>
                   ))}
