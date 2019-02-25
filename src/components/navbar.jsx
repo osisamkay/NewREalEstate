@@ -43,8 +43,8 @@ const Nav = styled.div`
     color: #293064;
     animation: fadeInLeft .6s both;
     &:nth-child(even){
-      background: #293064;
-      color: #b7c2f1;
+      background:#052758;
+      color: white;
     }
     
   }
@@ -82,17 +82,31 @@ const Navgroup = styled.nav`
     text-align: center;
     padding:10px 0 10px 0;
     display: grid;
-    grid-template-columns: 1.3fr 3fr .8fr;
+    grid-template-columns: 1fr 2fr ;
     align-items: center;
-    justify-items: center;
+    justify-items: left;
     width:100%;
     .GridLink{
         display:grid;
-        grid-template-columns:repeat(5,1fr);
-        grid-gap:25px;
-
+        grid-template-columns:repeat(4,1fr);
+        grid-gap: 20px;
+        margin-left:auto;
+        padding-right:15%;
+    }
+    .logo{
+      padding-left:27%;
+    }
+    @media (min-width:1440px){
+      .GridLink{
+        grid-gap:45px;
+      }
     }
   }
+
+  @media (min-width:1024px){
+    
+  }
+
   a {
     font-weight: 500;
     font-family: Segoe UI;
@@ -134,23 +148,18 @@ class Navbar extends Component{
                     <Link to="/">Home</Link>
                     <Link to="/About">About Us</Link>
                     <Link to="/Property">Properties</Link>
-                    <Link to="/Sellpage">Sell</Link>
                     <Link to="/Contact">Contact Us</Link>
                 </div>
             </div>
             <Navgroup>
-                <div>
+                <div className='logo'>
                 <Link to="/"><img src={Logo} className='logo2' alt="logo" /></Link>
                 </div>
                 <div className="GridLink">
                     <Link to="/">Home</Link>
                     <Link to="/About">About Us</Link>
                     <Link to="/Property">Properties</Link>
-                    <Link to="/Sellpage">Sell</Link>
                     <Link to="/Contact">Contact Us</Link>
-                </div>
-                <div>
-                    <Link to="/"><img src={User} className="user" alt="user" /></Link>
                 </div>
             </Navgroup>
         </Nav>
