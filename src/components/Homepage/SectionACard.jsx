@@ -62,6 +62,7 @@ const CardStyle = styled.form`
     background: #D28662;
     font-weight: 600;
     font-size: 20px;
+    cursor:pointer;
   }
   .app-select{
     width:100%;
