@@ -17,10 +17,16 @@ const CardStyle = styled.form`
   .filter{
     display:inline-block;
     padding-left:20px;
-    select, input{
+    select{
       height: 45px;
       padding: 12px;
       border-radius: 5px;
+    }
+    input[type="search"]{
+      height: 45px;
+      padding: 12px;
+      border-radius: 5px;
+      width:100%;
     }
   }
 
@@ -47,7 +53,7 @@ const CardStyle = styled.form`
       font-size: 15px;
     }
   }
-  input[type="button"] {
+  input[type="submit"] {
     border: none;
     border-radius: 5px;
     padding: 11px;
