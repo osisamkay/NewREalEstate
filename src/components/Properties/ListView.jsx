@@ -80,7 +80,7 @@ const Liststyle = styled.div`
     text-align:center;
     padding: 40px 0;
   }
-  input[type="button"] {
+  input[type="submit"] {
     height: 45px;
     width: 79%;
     border: 0;
@@ -266,7 +266,8 @@ class ListView extends Component {
   GetEmail = (e) => {
     this.setState({ Email: e.target.value});
   };
-  onOpenModal = () => {
+  onOpenModal = (e) => {
+    e.preventDefault();
     this.setState({ open: true });
   };
   onCloseModal = () => {
@@ -339,7 +340,7 @@ class ListView extends Component {
                   </button>
                 </div>
                 <div className="viewright">
-                  <form>
+                  <form onSubmit={this.onOpenModal}>
                     <h3>Contact The Agent</h3>
                     <div className="agent">
                       <img src={list.fields.AgentPics[0].url} alt="agent" />
@@ -350,18 +351,18 @@ class ListView extends Component {
                     </div>
                     <div className="form">
                       <label htmlFor="name">Name</label>
-                      <input type="text" name='Name' onChange={this.GetName}/>
+                      <input type="text" name='Name' required onChange={this.GetName}/>
                     </div>
                     <div className="form">
                       <label htmlFor="email">Email</label>
-                      <input type="email" name='email' onChange={this.GetEmail} />
+                      <input type="email" name='email' required onChange={this.GetEmail} />
                     </div>
                     <div className="form">
                       <label htmlFor="message">Message</label>
                       <textarea name="message" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div className="button">
-                      <input type="button" value="Send Message" onClick={this.onOpenModal} />
+                      <input type="submit" value="Send Message"  />
                     </div>
                   </form>
                 </div>
