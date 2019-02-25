@@ -40,6 +40,7 @@ const SectE1 = styled.div`
     }
     .button{
       text-align:center;
+      
     }
     button{
       float: right;
@@ -49,6 +50,7 @@ const SectE1 = styled.div`
       border-radius: 5px;
       background-color: #314b73;
       color: white;
+      cursor:pointer;
     }
     
     &::after{
