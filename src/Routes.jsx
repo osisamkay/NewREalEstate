@@ -6,6 +6,7 @@ import Contact from './components/Contact us/contact';
 import About from './components/About Us/About';
 import Listing from './components/Properties/Listings';
 import ListView from './components/Properties/ListView';
+import Results from './Results';
 
 const Routes = () => (
   <Router>
