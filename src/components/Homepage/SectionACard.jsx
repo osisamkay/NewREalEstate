@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
 import styled from 'styled-components';
+import axios from 'axios';
 
-const CardStyle = styled.div`
+const CardStyle = styled.form`
   .stylegroup{
     display:grid;
     grid-template-columns:repeat(5,1fr);
@@ -15,7 +17,7 @@ const CardStyle = styled.div`
   .filter{
     display:inline-block;
     padding-left:20px;
-    select{
+    select, input{
       height: 45px;
       padding: 12px;
       border-radius: 5px;
@@ -67,69 +69,95 @@ const CardStyle = styled.div`
 export default class SectionACard extends Component {
   constructor(props) {
     super(props);
- 
+
     this.state = {
       value: { min: 0, max: 100000000 },
+      search:" ",
+      lists: [],
     };
   }
-  handleValuesChange(event) {
+  LocationChange=(e)=>{
     this.setState({
-      value: event.target.value
-    });
+      search: e.target.value
+    })
+  };
+  
+  
+  submit(event) {
+    event.preventDefault();
+    axios({
+      method: 'get',
+      url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
+      headers: { Authorization: `Bearer keyRMRWZ0xrBXA8Yv` },
+
+    }).then(({ data: { records } }) => {
+      ;
+      this.setState({
+        ready: 'loaded',
+        lists: records,
+      })
+    })
   }
   render() {
-    const{value} = this.state
+    const {lists, search} = this.state;
+   const filtered = lists.filter(list => {
+      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1
+    });
     return (
-      <CardStyle>
-      <div className="stylegroup">
-        <div className="Location filter">
-          <select name="Location-type" className="app-select" required>
-            <option data-display="Location Type">Location</option>
-            <option value="1">Location  1</option>
-            <option value="2">Location  2</option>
-            <option value="3">Location  3</option>
-          </select>
+      <div>
+      <CardStyle onSubmit={this.submit.bind(this)}>
+        <div className="stylegroup">
+          <div className="Location filter">
+          <input type="search" name="Location" placeholder='Location' onChange={this.LocationChange}  />
+          </div>
+          <div className="Category filter">
+            <select name="Category-type" className="app-select" required>
+              <option data-display="Location Type">Category</option>
+              <option value="1">Category  1</option>
+              <option value="2">Category  2</option>
+              <option value="3">Category  3</option>
+            </select>
+          </div>
+          <div className="Bedrooms filter">
+            <select name="Bedrooms-type" className="app-select" required>
+              <option data-display="Bedrooms Type">Bedroom</option>
+              <option value="1">Bedrooms  1</option>
+              <option value="2">Bedrooms  2</option>
+              <option value="3">Bedrooms  3</option>
+            </select>
+          </div>
+          <div className="AreaRange filter">
+            <select name="Location-type" className="app-select" required>
+              <option data-display="Area Range">Area Range</option>
+              <option value="1">Area Range 1</option>
+              <option value="2">Area Range  2</option>
+              <option value="3">Area Range  3</option>
+            </select>
+          </div>
+          <div className="range1 filter">
+            <h3>₦100,000</h3>
+            <input id="typeinp" type="range" min="0" max="100,000,000" defaultValue="3" step="1" />
+            <h3>100,000,000</h3>
+          </div>
+          <div className="search filter">
+            <input type="submit" value="Search" />
+          </div>
         </div>
-        <div className="Category filter">
-          <select name="Category-type" className="app-select" required>
-            <option data-display="Location Type">Category</option>
-            <option value="1">Category  1</option>
-            <option value="2">Category  2</option>
-            <option value="3">Category  3</option>
-          </select>
+        <div className="range2 filter">
+          <h5>₦100,000</h5>
+          <input id="typeinp" type="range" min="0" max="100,000,000" value={this.state.values} step="1" />
+          <h5>₦100,000,000</h5>
         </div>
-        <div className="Bedrooms filter">
-          <select name="Bedrooms-type" className="app-select" required>
-            <option data-display="Bedrooms Type">Bedroom</option>
-            <option value="1">Bedrooms  1</option>
-            <option value="2">Bedrooms  2</option>
-            <option value="3">Bedrooms  3</option>
-          </select>
-        </div>
-        <div className="AreaRange filter">
-          <select name="Location-type" className="app-select" required>
-            <option data-display="Area Range">Area Range</option>
-            <option value="1">Area Range 1</option>
-            <option value="2">Area Range  2</option>
-            <option value="3">Area Range  3</option>
-          </select>
-        </div>
-        <div className="range1 filter">
-          <h3>₦100,000</h3>
-          <input id="typeinp" type="range" min="0" max="100,000,000" defaultValue="3" step="1" />
-          <h3>100,000,000</h3>
-        </div>
-        <div className="search filter">
-          <input type="button" value="Search" />
-        </div>
+      </CardStyle>
+      {filtered.length > 0 &&
+          <Redirect to={{
+            pathname: '/Result',
+            state: { results: filtered }
+          }}/>
+        }
       </div>
-      <div className="range2 filter">
-        <h5>₦100,000</h5>
-        <input id="typeinp" type="range" min="0" max="100,000,000"  value={this.state.values} 
-        onChange={this.handleValuesChange.bind(this)} step="1" />
-        <h5>₦100,000,000</h5>
-      </div>
-    </CardStyle>
     )
   }
 }
