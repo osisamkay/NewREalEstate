@@ -1,0 +1,27 @@
+.styles_modal__gNwvD {
+  max-width: 1400px !important;
+  
+}
+.modals {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.modals .child1 h4 {
+  display: inline;
+}
+
+.modals .button {
+  display: inline;
+  float: right;
+}
+.modals button{
+  padding: 10px;
+  border: none;
+  width: 65px;
+  border-radius: 5px;
+  background-color: #314b73;
+  color: white;
+  cursor:pointer;
+}
