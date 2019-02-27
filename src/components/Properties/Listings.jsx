@@ -6,7 +6,10 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Loader from '../../../assets/loader.gif';
 import ListCard from './ListCard';
+import InputRange from 'react-input-range';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-input-range/lib/css/index.css";
+import "./range.css";
 
 const List = styled.div`
   .header img{
@@ -157,6 +160,7 @@ class Listing extends Component {
       lists: [],
       ready: 'initial',
       search: " ",
+      value: 100000,
     };
   }
   componentDidMount() {
@@ -186,13 +190,20 @@ class Listing extends Component {
       search: e.target.value
     })
   };
+  PropertyChange(e) {
+    this.setState({
+      search: e.target.value
+    })
+  };
+
   render() {
-    const { lists, ready, search } = this.state;
+    const { lists, ready, search, value } = this.state;
 
     const filtered = lists.filter(list => {
       return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        list.fields.AskingPrice.toLowerCase().indexOf(value.toLowerCase()) !== -1
     });
 
     return (
@@ -243,9 +254,14 @@ class Listing extends Component {
                 </div>
               </div>
               <div className="range2 filter">
-                <h5>₦100,000</h5>
-                <input id="typeinp" type="range" min="0" max="100,000,000" value={this.state.values} step="1" />
-                <h5>₦100,000,000</h5>
+                <InputRange
+                  maxValue={100000000}
+                  minValue={100000}
+                  enable
+                  formatLabel={value => `₦ ${value} `}
+                  value={this.state.value}
+                  onChange={value => this.setState({ value: value })}
+                  onChangeComplete={value => console.log(value)} />
               </div>
             </form>
           </div>
@@ -318,9 +334,14 @@ class Listing extends Component {
                       <input type="text" id="range2" name="area" placeholder='Area Range' />
                     </div>
                     <div className="range2 filter">
-                      <h5>₦100,000</h5>
-                      <input id="typeinp" type="range" min="0" max="100,000,000" value={this.state.values} step="1" />
-                      <h5>₦100,000,000</h5>
+                      <InputRange
+                        maxValue={100000000}
+                        minValue={100000}
+                        enable
+                        formatLabel={value => `₦ ${value} `}
+                        value={this.state.value}
+                        onChange={value => this.setState({ value: value })}
+                        onChangeComplete={value => console.log(value)} />
                     </div>
                   </form>
                 </div>
