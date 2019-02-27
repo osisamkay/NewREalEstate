@@ -4,12 +4,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 import ListCard from './../Properties/ListCard';
 import Modal from 'react-responsive-modal';
+import InputRange from 'react-input-range';
+import "react-input-range/lib/css/index.css";
 import './modal.css';
 
 const CardStyle = styled.form`
   .stylegroup{
     display:grid;
     grid-template-columns:repeat(5,1fr);
+    margin-bottom: 20px;
   }
   @media(min-width:1024px){
       width:81%;
@@ -47,6 +50,13 @@ const CardStyle = styled.form`
   .range2{
     display:block;
     padding-top: 20px;
+    width: 60%;
+    margin: 0px auto;
+    padding:20px 0px;
+      .input-range__track--active ,.input-range__slider {
+        background: #d28662;
+        border-color: #d28662;
+    }
   }
     h5{
       margin: 0px;
@@ -82,7 +92,7 @@ export default class SectionACard extends Component {
     super(props);
 
     this.state = {
-      value: { min: 0, max: 100000000 },
+      value: 5000000,
       search: " ",
       lists: [],
       open: false,
@@ -133,23 +143,30 @@ export default class SectionACard extends Component {
               <input type="search" name="Location" required placeholder='Location' onChange={this.LocationChange} />
             </div>
             <div className="Category filter">
-              <select name="Category-type" className="app-select" required>
+              <select name="Category-type" className="app-select" >
                 <option data-display="Location Type">Category</option>
-                <option value="1">Category  1</option>
-                <option value="2">Category  2</option>
-                <option value="3">Category  3</option>
+                <option value="1">Modern Townhouse</option>
+                    <option value="2">terraced duplex</option>
+                    <option value="3">Urban Townhouse</option>
+                    <option value="4">Downtown Condo</option>
+                    <option value="5">Beach House</option>
+                    <option value="6"> Duplex</option>
+                    <option value="7"> Flats</option>
+                    <option value="8"> Mall</option>
+                    <option value="9"> Office</option>
               </select>
             </div>
             <div className="Bedrooms filter">
-              <select name="Bedrooms-type" className="app-select" required>
-                <option data-display="Bedrooms Type">Bedroom</option>
-                <option value="1">Bedrooms  1</option>
-                <option value="2">Bedrooms  2</option>
-                <option value="3">Bedrooms  3</option>
+              <select name="Bedrooms-type" className="app-select" onChange={this.LocationChange} >
+                <option value="1">1 Bedroom</option>
+                <option value="2">2 Bedroom</option>
+                <option value="3">3 Bedroom</option>
+                <option value="4">4 Bedroom</option>
+                <option value="5">5 Bedroom</option>
               </select>
             </div>
             <div className="AreaRange filter">
-              <select name="Location-type" className="app-select" required>
+              <select name="Location-type" className="app-select">
                 <option data-display="Area Range">Area Range</option>
                 <option value="1">Area Range 1</option>
                 <option value="2">Area Range  2</option>
@@ -166,9 +183,14 @@ export default class SectionACard extends Component {
             </div>
           </div>
           <div className="range2 filter">
-            <h5>₦100,000</h5>
-            <input id="typeinp" type="range" min="0" max="100,000,000" value={this.state.values} step="1" />
-            <h5>₦100,000,000</h5>
+          <InputRange
+                  maxValue={100000000}
+                  minValue={100000}
+                  enable
+                  formatLabel={value => `₦ ${value} `}
+                  value={this.state.value}
+                  onChange={value => this.setState({ value: value })}
+                  onChangeComplete={value => console.log(value)} />
           </div>
         </CardStyle>
         <Modal open={open} onClose={this.onCloseModal} center>
