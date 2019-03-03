@@ -52,11 +52,15 @@ const List = styled.div`
     }
 
     .range2{
+      padding-top: 45px;
+
       h5{
         display:inline;
         margin:0px;
         @media(min-width:1440px){
             font-size: 11px;
+            padding-top: 45px;
+
         }
       }
       @media(min-width:768px){
@@ -203,7 +207,7 @@ class Listing extends Component {
       return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        list.fields.AskingPrice.toLowerCase().indexOf(value.toLowerCase()) !== -1
+        list.fields.AskingPrice.toString().indexOf(value.toString()) !== -1
     });
 
     return (
