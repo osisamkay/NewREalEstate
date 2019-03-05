@@ -114,7 +114,7 @@ export default class SectionACard extends Component {
 
 
   componentDidMount() {
-   
+
     axios({
       method: 'get',
       url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
@@ -146,14 +146,14 @@ export default class SectionACard extends Component {
               <select name="Category-type" className="app-select" >
                 <option data-display="Location Type">Category</option>
                 <option value="1">Modern Townhouse</option>
-                    <option value="2">terraced duplex</option>
-                    <option value="3">Urban Townhouse</option>
-                    <option value="4">Downtown Condo</option>
-                    <option value="5">Beach House</option>
-                    <option value="6"> Duplex</option>
-                    <option value="7"> Flats</option>
-                    <option value="8"> Mall</option>
-                    <option value="9"> Office</option>
+                <option value="2">terraced duplex</option>
+                <option value="3">Urban Townhouse</option>
+                <option value="4">Downtown Condo</option>
+                <option value="5">Beach House</option>
+                <option value="6"> Duplex</option>
+                <option value="7"> Flats</option>
+                <option value="8"> Mall</option>
+                <option value="9"> Office</option>
               </select>
             </div>
             <div className="Bedrooms filter">
@@ -179,43 +179,46 @@ export default class SectionACard extends Component {
               <h3>100,000,000</h3>
             </div>
             <div className="search filter">
-              <input type="submit" value="Search"   />
+              <input type="submit" value="Search" />
             </div>
           </div>
           <div className="range2 filter">
-          <InputRange
-                  maxValue={100000000}
-                  minValue={100000}
-                  enable
-                  formatLabel={value => `₦ ${value} `}
-                  value={this.state.value}
-                  onChange={value => this.setState({ value: value })}
-                  onChangeComplete={value => console.log(value)} />
+            <InputRange
+              maxValue={100000000}
+              minValue={100000}
+              enable
+              formatLabel={value => `₦ ${value} `}
+              value={this.state.value}
+              onChange={value => this.setState({ value: value })}
+              onChangeComplete={value => console.log(value)} />
           </div>
         </CardStyle>
         <Modal open={open} onClose={this.onCloseModal} center>
-        <div className="modals">
-          {filtered.map(list => (
-            <div key={list.id}>
-              <Link to={`/Listview/${list.id}`}>
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ListCard
-                    image={list.fields.icon ? list.fields.icon[0].url : ''}
-                    Price={list.fields.Asking}
-                    location={list.fields.Name}
-                    bath={list.fields.Bathrooms}
-                    bed={list.fields.Bedrooms}
-                    area={list.fields.Area} >
-                    <div className="child1">
-                      <h4>{list.fields.Tag}</h4>
-                      <div className='button'><button>View</button></div>
-                    </div>
-                  </ListCard>
-                </Suspense>
-              </Link>
-            </div>
-          ))}
-        </div>
+          <div className="loader">
+            {filtered.length   ? " " : (<h3 className='loader-text'>Not Available</h3>)}
+          </div>
+          <div className="modals">
+            {filtered.map(list => (
+              <div key={list.id}>
+                <Link to={`/Listview/${list.id}`}>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <ListCard
+                      image={list.fields.icon ? list.fields.icon[0].url : ''}
+                      Price={list.fields.Asking}
+                      location={list.fields.Name}
+                      bath={list.fields.Bathrooms}
+                      bed={list.fields.Bedrooms}
+                      area={list.fields.Area} >
+                      <div className="child1">
+                        <h4>{list.fields.Tag}</h4>
+                        <div className='button'><button>View</button></div>
+                      </div>
+                    </ListCard>
+                  </Suspense>
+                </Link>
+              </div>
+            ))}
+          </div>
         </Modal>
       </div>
     )

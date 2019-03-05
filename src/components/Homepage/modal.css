@@ -1,5 +1,6 @@
 .styles_modal__gNwvD {
   max-width: 1400px !important;
+  background: rgba(68,146,181,1);
   
 }
 .modals {
@@ -25,3 +26,4 @@
   color: white;
   cursor:pointer;
 }
+
