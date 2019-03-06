@@ -46,6 +46,9 @@ const SectionAStyle = styled.div`
     @media (min-width:1440px){
       left:135px;
     }
+    @media (min-width:1460px){
+      left: 148px;
+    }
     @media (min-width:2560px){
       left: 234px;
     }
