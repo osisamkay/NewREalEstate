@@ -40,8 +40,14 @@ const SectionAStyle = styled.div`
     @media (min-width:1024px){
       left:93px;
     }
+    @media (min-width:1366px){
+      left:128px;
+    }
     @media (min-width:1440px){
       left:135px;
+    }
+    @media (min-width:2560px){
+      left: 234px;
     }
   }
 
