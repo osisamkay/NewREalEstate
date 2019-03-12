@@ -274,6 +274,7 @@ class Listing extends Component {
                 <div className="loader">
                   {lists.length ? '' : (<h3 className='loader-text'>There are no list items</h3>)}
                   {ready === 'loading' ? (<div className='loader-img'><img src={Loader} className='Image' alt="loader" /></div>) : ''}
+  {filtered.length   ? " " : (<h1 className='loader-text'> '{search.toUpperCase()}' Not Available </h1>)}
                 </div>
                 <div className="left">
                   {filtered.map(list => (
