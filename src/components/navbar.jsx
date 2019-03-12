@@ -39,8 +39,8 @@ const Nav = styled.div`
     font-size: 16px;
     font-family:Segoe UI;
     padding: 5px;
-    background-color: #b7c2f1;
-    color: #293064;
+    background-color: whitesmoke;
+    color: #052758;
     animation: fadeInLeft .6s both;
     &:nth-child(even){
       background:#052758;
