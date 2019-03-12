@@ -206,8 +206,7 @@ class Listing extends Component {
     const filtered = lists.filter(list => {
       return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         list.fields.Bedrooms.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        list.fields.AskingPrice.toString().indexOf(value.toString()) !== -1
+        list.fields.Tag.toLowerCase().indexOf(search.toLowerCase()) !== -1 
     });
 
     return (
