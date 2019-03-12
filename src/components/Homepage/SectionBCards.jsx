@@ -68,7 +68,16 @@ const Cards = styled.div`
       padding: 4px;
       width:100px;
       font-weight: 600;
-      font-size:17px;
+      font-size:11.5px;
+      @media(min-width:425px){
+        font-size: 16px;
+      }
+      @media(min-width:768px){
+        font-size: 11.5px;
+      }
+      @media(min-width:906px){
+        font-size: 16px;
+      }
     }
   }
 `;

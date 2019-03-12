@@ -19,7 +19,6 @@ const SectE = styled.div`
 
 const SectEGroup = styled.div`
   padding:60px 0;
-  @media(mi:786pxn-width)
 `;
 const SectE1 = styled.div`
 
@@ -36,7 +35,16 @@ const SectE1 = styled.div`
     h4{
       float: left;
       margin: 0px;
-      font-size: 22px;
+      font-size: 17px;
+      @media (min-width:425px){
+        font-size: 22px;
+      }
+      @media (min-width:768px){
+        font-size: 17px;
+      }
+      @media (min-width:870px){
+        font-size: 22px;
+      }
     }
     .button{
       text-align:center;
